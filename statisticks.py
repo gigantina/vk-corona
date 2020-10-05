@@ -39,7 +39,7 @@ def get_statistics():
 
         else:
             if i < len(table) - 3:
-                if table[i + 4] == 'Anguilla' or table[i + 3] == 'Anguilla':
+                if table[i + 4] == 'Anguilla' or table[i + 3] == 'Anguilla': # still a crutch
                     continue
                 else:
                     changed_table.append(table[i])
