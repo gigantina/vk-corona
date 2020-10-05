@@ -24,7 +24,7 @@ def main():
     keyboard.add_line()
     keyboard.add_button('США', color=VkKeyboardColor.SECONDARY)
     keyboard.add_button('Россия', color=VkKeyboardColor.POSITIVE)
-    keyboard.add_button('Индия', color=VkKeyboardColor.SECONDARY)
+    keyboard.add_button('Китай', color=VkKeyboardColor.SECONDARY)
 
     keyboard.add_line()
     keyboard.add_button('Помощь', color=VkKeyboardColor.PRIMARY)

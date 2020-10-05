@@ -26,6 +26,7 @@ def get_statistics():
             stat['0'][data[i]] = 'N/A'
     table = table[table.find('All') + 10:].split('\n')
 
+
     flag = False
     none = ['North America', 'Europe', 'Asia', 'South America', 'Africa', 'Australia/Oceania']
     changed_table = []
@@ -35,8 +36,14 @@ def get_statistics():
             flag = True
         elif flag:
             flag = False
+
         else:
-            changed_table.append(table[i])
+            if i < len(table) - 3:
+                if table[i + 4] == 'Anguilla' or table[i + 3] == 'Anguilla':
+                    continue
+                else:
+                    changed_table.append(table[i])
+
     dp = changed_table.index('Diamond Princess')
 
     changed_table = changed_table[:dp - 1] + changed_table[dp + 18:]
@@ -57,12 +64,10 @@ def get_country_stat_or_None(query):
         translator = Translator(from_lang=lang, to_lang='english')
         query = translator.translate(query)
         stat = get_statistics()
-        print(stat)
         for i in range(len(stat) + 1):
             if str(i) in stat:
                 if stat[str(i)]['Страна'] == query or str(i) == query:
                     res = (stat[str(i)], str(i))
-                    print(res)
-    except:
-        pass
+    except Exception as e:
+        print(e)
     return res

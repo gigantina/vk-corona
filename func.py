@@ -13,6 +13,4 @@ def get_message_from_tuple(tuple_):
     for i in range(14):
         part_of_stat = data[i]
         res += f'{part_of_stat}: {stat[part_of_stat]}\n'
-        if i == 0:
-            res += f'Место в мире: {n}\n'
     return res
