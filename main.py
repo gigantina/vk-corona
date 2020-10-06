@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import vk_api
 
-from vk_api.utils import get_random_id
+
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.longpoll import VkLongPoll, VkEventType
@@ -11,7 +12,6 @@ from func import *
 
 
 def main():
-    url = 'стопкоронавирус.рф/information'
     vk_session = vk_api.VkApi(
         token=TOKEN)
     vk = vk_session.get_api()

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup as bs
 import requests
 from translate import Translator
@@ -61,13 +62,14 @@ def get_country_stat_or_None(query):
     lang = 'russian'
     res = None
     try:
-        translator = Translator(from_lang=lang, to_lang='english')
-        query = translator.translate(query)
+        if query.isalpha():
+            translator = Translator(from_lang=lang, to_lang='english')
+            query = translator.translate(query)
         stat = get_statistics()
         for i in range(len(stat) + 1):
             if str(i) in stat:
                 if stat[str(i)]['Страна'] == query or str(i) == query:
-                    res = (stat[str(i)], str(i))
+                    res = stat[str(i)]
     except Exception as e:
         print(e)
     return res
